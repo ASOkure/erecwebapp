@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" 
+     xmlns:c="http://java.sun.com/jsp/jstl/core"  
+     xmlns:spring="http://www.springframework.org/tags"
+     xmlns:form="http://www.springframework.org/tags/form"
+     xmlns:joda="http://www.joda.org/joda/time/tags"
+     version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+
+    <spring:message code="label_reporter_info" var="labelReporterInfo"/>
+    <spring:message code="label_reporter_list" var="labelReporterList"/>
+	<spring:message code="label_reporter_name" var="labelReporterName"/>
+	<spring:message code="label_reporter_id" var="labelReporterID"/>
+	<spring:message code="label_reporter_mtg" var="labelReporterMTG"/>
+   
+    <spring:message code="label_reporter_update" var="labelReporterUpdate"/>
+    <spring:message code="date_format_pattern" var="dateFormatPattern"/>
+    
+   
+    
+    <spring:url value="/reporters" var="editReporterUrl"/>    
+    
+
+    <h1>${labelReporterInfo}</h1>
+
+    <div id="Info">
+
+        <c:if test="${not empty message}">
+            <div id="message" class="${message.type}">${message.message}</div>
+        </c:if>
+
+        <table>
+            <tr>
+                <td>${labelReporterName}</td>
+                <td>${reporter.reporterName}</td>
+            </tr>
+            <tr>
+                <td>${labelReporterID}</td>
+                <td>${reporter.reporterID}</td>
+            </tr>   
+            
+            <tr>
+            <td>${labelReporterMTG}</td>
+            <td>${reporter.mtg}</td>
+            </tr>
+                                                                                                                   
+        </table>         
+       
+        <a href="${editReporterUrl}/${reporter.id}?form">${labelReporterUpdate}</a>     
+                      
+    </div>
+
+</div>
